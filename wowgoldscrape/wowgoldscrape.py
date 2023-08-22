@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 
-BASE_URL = "https://www.wowhead.com/item="
+BASE_URL = "https://www.wowhead.com/classic/npc="
 
 def connect_db():
     """Connect to the SQLite database and return a connection object."""
@@ -21,7 +21,7 @@ def update_droprate_and_name(conn, itemId, droprate, itemName):
     cursor.execute("UPDATE auctions SET droprate = ?, itemName = ? WHERE itemId = ?", (droprate, itemName, itemId))
     conn.commit()
 
-def fetch_and_update_data():
+def fetch_and_update_item():
     conn = connect_db()
     cursor = conn.cursor()
 
